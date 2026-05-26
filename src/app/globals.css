@@ -1,0 +1,966 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-gold: #C9A96E;
+  --color-gold-light: #E8D5B0;
+  --color-gold-dark: #9A7B4F;
+  --color-gold-50: #FDF8F0;
+  --color-gold-100: #F5ECD8;
+  --color-dark: #0A0A0A;
+  --color-dark-lighter: #141414;
+  --color-dark-card: #1A1A1A;
+  --color-dark-border: #2A2A2A;
+}
+
+/* ===== LIGHT MODE VARIABLES (default) ===== */
+:root {
+  --radius: 0.625rem;
+  --background: #FAFAF8;
+  --foreground: #1A1A1A;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1A;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1A;
+  --primary: #1A1A1A;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F0EDE8;
+  --secondary-foreground: #1A1A1A;
+  --muted: #F0EDE8;
+  --muted-foreground: rgba(26, 26, 26, 0.55);
+  --accent: #C9A96E;
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --border: rgba(26, 26, 26, 0.1);
+  --input: rgba(26, 26, 26, 0.1);
+  --ring: #C9A96E;
+  --chart-1: #C9A96E;
+  --chart-2: #1A1A1A;
+  --chart-3: rgba(26, 26, 26, 0.5);
+  --chart-4: #9A7B4F;
+  --chart-5: #6B5638;
+  --sidebar: #FAFAF8;
+  --sidebar-foreground: #1A1A1A;
+  --sidebar-primary: #C9A96E;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: rgba(201, 169, 110, 0.1);
+  --sidebar-accent-foreground: #1A1A1A;
+  --sidebar-border: rgba(26, 26, 26, 0.1);
+  --sidebar-ring: #C9A96E;
+  --bg-primary: #FAFAF8;
+  --bg-secondary: #F0EDE8;
+  --bg-card: #FFFFFF;
+  --bg-nav: rgba(250, 250, 248, 0.95);
+  --text-primary: #1A1A1A;
+  --text-secondary: rgba(26, 26, 26, 0.7);
+  --text-muted: rgba(26, 26, 26, 0.45);
+  --border-color: rgba(26, 26, 26, 0.1);
+  --border-accent: rgba(201, 169, 110, 0.25);
+  /* Theme-aware inline style variables */
+  --c-text-primary: #1A1A1A;
+  --c-text-secondary: rgba(26, 26, 26, 0.7);
+  --c-text-muted: rgba(26, 26, 26, 0.5);
+  --c-text-faint: rgba(26, 26, 26, 0.35);
+  --c-text-ghost: rgba(26, 26, 26, 0.2);
+  --c-text-micro: rgba(26, 26, 26, 0.1);
+  --c-surface-dark: #F0EDE8;
+  --c-surface-card: #FFFFFF;
+  --c-surface-hover: #E8E4DD;
+  --c-border-subtle: rgba(26, 26, 26, 0.08);
+  --c-search-overlay-bg: rgba(250, 250, 248, 0.95);
+  --c-search-input-bg: #F0EDE8;
+  --c-mobile-nav-bg: rgba(250, 250, 248, 0.95);
+  --c-gold-bg-alpha: rgba(201, 169, 110, 0.08);
+  /* Chatbot-specific variables */
+  --chat-panel-bg: #FAFAF8;
+  --chat-bubble-bot: rgba(26, 26, 26, 0.04);
+  --chat-bubble-bot-border: rgba(26, 26, 26, 0.06);
+  --chat-header-bg: linear-gradient(135deg, rgba(201,169,110,0.1), rgba(201,169,110,0.03));
+  --chat-input-bg: rgba(26, 26, 26, 0.04);
+  --chat-input-border: rgba(26, 26, 26, 0.08);
+  --chat-btn-bg: transparent;
+  --chat-btn-hover: rgba(26, 26, 26, 0.06);
+  --chat-hi-bubble-bg: #F0EDE8;
+  --chat-suggestion-bg: transparent;
+  --chat-suggestion-border: rgba(26, 26, 26, 0.06);
+  --chat-scroll-thumb: rgba(201,169,110,0.3);
+  --chat-tag-bg: rgba(201,169,110,0.08);
+}
+
+/* ===== DARK MODE VARIABLES ===== */
+.dark {
+  --background: #0A0A0A;
+  --foreground: #ffffff;
+  --card: #1A1A1A;
+  --card-foreground: #ffffff;
+  --popover: #1A1A1A;
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #0A0A0A;
+  --secondary: #111111;
+  --secondary-foreground: #ffffff;
+  --muted: #111111;
+  --muted-foreground: rgba(255, 255, 255, 0.5);
+  --accent: #C9A96E;
+  --accent-foreground: #0A0A0A;
+  --destructive: #EF4444;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: #C9A96E;
+  --chart-1: #C9A96E;
+  --chart-2: #ffffff;
+  --chart-3: rgba(255, 255, 255, 0.5);
+  --chart-4: #E8D5B0;
+  --chart-5: #9A7B4F;
+  --sidebar: #0A0A0A;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #C9A96E;
+  --sidebar-primary-foreground: #0A0A0A;
+  --sidebar-accent: rgba(201, 169, 110, 0.1);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #C9A96E;
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #111111;
+  --bg-card: #1A1A1A;
+  --bg-nav: rgba(0, 0, 0, 0.95);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.45);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(201, 169, 110, 0.2);
+  /* Theme-aware inline style variables */
+  --c-text-primary: #ffffff;
+  --c-text-secondary: rgba(255,255,255,0.7);
+  --c-text-muted: rgba(255,255,255,0.5);
+  --c-text-faint: rgba(255,255,255,0.35);
+  --c-text-ghost: rgba(255,255,255,0.2);
+  --c-text-micro: rgba(255,255,255,0.1);
+  --c-surface-dark: #111111;
+  --c-surface-card: #1a1a1a;
+  --c-surface-hover: #252525;
+  --c-border-subtle: rgba(255,255,255,0.08);
+  --c-search-overlay-bg: rgba(0,0,0,0.95);
+  --c-search-input-bg: #111;
+  --c-mobile-nav-bg: rgba(0,0,0,0.95);
+  --c-gold-bg-alpha: rgba(201, 169, 110, 0.1);
+  /* Chatbot-specific variables */
+  --chat-panel-bg: #0d0d0d;
+  --chat-bubble-bot: rgba(255,255,255,0.04);
+  --chat-bubble-bot-border: rgba(255,255,255,0.04);
+  --chat-header-bg: linear-gradient(135deg, rgba(201,169,110,0.08), rgba(201,169,110,0.02));
+  --chat-input-bg: rgba(255,255,255,0.03);
+  --chat-input-border: rgba(255,255,255,0.06);
+  --chat-btn-bg: transparent;
+  --chat-btn-hover: rgba(255,255,255,0.05);
+  --chat-hi-bubble-bg: #1a1a1a;
+  --chat-suggestion-bg: transparent;
+  --chat-suggestion-border: rgba(255,255,255,0.04);
+  --chat-scroll-thumb: rgba(201,169,110,0.2);
+  --chat-tag-bg: rgba(201,169,110,0.1);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+  html {
+    scroll-behavior: auto;
+    transition: background-color 0.15s ease;
+  }
+  /* FCP optimization: font-display swap for all custom fonts */
+  @font-face {
+    font-display: swap;
+  }
+}
+
+/* Custom scrollbar — theme-aware */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A96E;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E8D5B0;
+}
+
+/* Leaflet Map — Theme-Aware Gold Theme Override */
+
+/* Ensure popup pane is above all other map panes and overlays */
+.leaflet-popup-pane {
+  z-index: 700 !important;
+}
+.leaflet-popup {
+  z-index: 700 !important;
+}
+
+/* Ensure Radix Dialog portal renders above Leaflet map at all times */
+[data-slot="dialog-portal"] {
+  z-index: 10000 !important;
+  position: fixed !important;
+  inset: 0 !important;
+  pointer-events: auto !important;
+}
+[data-slot="dialog-overlay"] {
+  z-index: 10000 !important;
+}
+[data-slot="dialog-content"] {
+  z-index: 10001 !important;
+}
+
+.custom-gold-popup .leaflet-popup-content-wrapper {
+  background: var(--c-surface-card) !important;
+  color: var(--c-text-primary) !important;
+  border: 1px solid var(--border-accent) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(201, 169, 110, 0.08) !important;
+  padding: 0 !important;
+}
+
+.custom-gold-popup .leaflet-popup-content {
+  margin: 16px 18px !important;
+  color: var(--c-text-primary) !important;
+}
+
+.custom-gold-popup .leaflet-popup-tip {
+  background: var(--c-surface-card) !important;
+  border: 1px solid var(--border-accent) !important;
+  box-shadow: none !important;
+}
+
+.custom-gold-popup .leaflet-popup-close-button {
+  color: #888 !important;
+  font-size: 20px !important;
+  padding: 6px 8px 0 0 !important;
+  z-index: 10;
+}
+
+.custom-gold-popup .leaflet-popup-close-button:hover {
+  color: #C9A96E !important;
+}
+
+/* Leaflet container background */
+.leaflet-container {
+  background: var(--bg-secondary) !important;
+}
+
+/* Leaflet zoom controls theme-aware */
+.leaflet-control-zoom a {
+  background: var(--c-surface-card) !important;
+  color: var(--accent) !important;
+  border-color: var(--border-accent) !important;
+  transition: background 0.2s !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: var(--c-surface-hover) !important;
+}
+
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.leaflet-control-zoom-in {
+  border-radius: 8px 8px 0 0 !important;
+}
+
+.leaflet-control-zoom-out {
+  border-radius: 0 0 8px 8px !important;
+}
+
+/* Map marker CSS animations — compositor-friendly (transform/opacity only) */
+.map-marker-dot {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+.map-marker-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--marker-color);
+  opacity: 0.12;
+  animation: mapPulseRing 3s ease-in-out infinite;
+  will-change: transform;
+}
+.map-marker-core {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 10px; height: 10px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--marker-color);
+  box-shadow: 0 0 8px var(--marker-glow);
+  animation: mapPulseCore 2.5s ease-in-out infinite;
+  will-change: transform;
+}
+.map-marker-highlight {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 4px; height: 4px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: white;
+  opacity: 0.35;
+}
+@keyframes mapPulseRing {
+  0%, 100% { transform: scale(1); opacity: 0.12; }
+  50% { transform: scale(1.3); opacity: 0.04; }
+}
+@keyframes mapPulseCore {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.15); }
+}
+
+/* Career-only map dots */
+.map-career-dot {
+  position: relative;
+  width: 19px;
+  height: 19px;
+}
+.map-career-core {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 8px; height: 8px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #888;
+  opacity: 0.85;
+  box-shadow: 0 0 6px rgba(150,150,150,0.3);
+}
+
+/* Search clear button hover */
+.search-clear-btn {
+  color: var(--c-text-muted);
+}
+.search-clear-btn:hover {
+  color: var(--c-text-primary);
+}
+
+/* Navigation link hover via CSS instead of inline JS */
+.nav-link-gold {
+  transition: color 0.3s;
+}
+.nav-link-gold:hover {
+  color: #C9A96E !important;
+}
+
+/* Search hint buttons hover */
+.search-hint-btn:hover {
+  border-color: #C9A96E !important;
+  color: #C9A96E !important;
+}
+
+/* Search result cards hover */
+.search-result-card:hover {
+  border-color: rgba(201,169,110,0.4) !important;
+  background-color: var(--c-surface-card) !important;
+}
+
+/* Download card hover glow */
+.download-card:hover {
+  box-shadow: 0 0 40px rgba(201,169,110,0.08) !important;
+}
+
+/* Download button hover */
+.download-btn:hover {
+  background-color: #C9A96E !important;
+  color: var(--c-text-primary) !important;
+}
+
+/* Map project buttons inside popups */
+.map-project-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: var(--c-surface-card);
+  border: 1px solid var(--border-accent);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  width: 100%;
+}
+
+.map-project-btn:hover {
+  border-color: rgba(201, 169, 110, 0.5);
+  background: var(--c-surface-hover);
+}
+
+.map-thumb {
+  width: 44px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.map-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--c-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.map-meta {
+  font-size: 10px;
+  color: var(--c-text-muted);
+  margin-top: 1px;
+}
+
+/* Gold gradient text utility */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #C9A96E 0%, #E8D5B0 50%, #C9A96E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gold line separator */
+.gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #C9A96E 50%, transparent 100%);
+}
+
+/* Shimmer animation for gold elements */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #C9A96E 0%, #E8D5B0 25%, #C9A96E 50%, #E8D5B0 75%, #C9A96E 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Chatbot slideUp animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Image reveal animation */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ken Burns — slow cinematic zoom for hero background */
+@keyframes kenBurns {
+  0%   { transform: scale(1.05); }
+  100% { transform: scale(1.15); }
+}
+
+/* Zoom In — slow cinematic zoom-in */
+.kb-zoom-in img {
+  animation: kbZoomIn 12s ease-in-out forwards;
+}
+@keyframes kbZoomIn {
+  0%   { transform: scale(1.0) translate(0, 0); }
+  100% { transform: scale(1.15) translate(0, 0); }
+}
+
+/* Zoom Out — slow cinematic zoom-out */
+.kb-zoom-out img {
+  animation: kbZoomOut 12s ease-in-out forwards;
+}
+@keyframes kbZoomOut {
+  0%   { transform: scale(1.15) translate(0, 0); }
+  100% { transform: scale(1.02) translate(0, 0); }
+}
+
+/* Pan Left — slow leftward drift */
+.kb-pan-left img {
+  animation: kbPanLeft 12s ease-in-out forwards;
+}
+@keyframes kbPanLeft {
+  0%   { transform: scale(1.12) translate(3%, 0); }
+  100% { transform: scale(1.12) translate(-3%, 0); }
+}
+
+/* Pan Right — slow rightward drift */
+.kb-pan-right img {
+  animation: kbPanRight 12s ease-in-out forwards;
+}
+@keyframes kbPanRight {
+  0%   { transform: scale(1.12) translate(-3%, 0); }
+  100% { transform: scale(1.12) translate(3%, 0); }
+}
+
+/* Dialog scroll support — enables smooth scrolling inside modal dialogs on mobile */
+[data-slot="dialog-content"] {
+  -webkit-overflow-scrolling: touch;
+}
+[data-slot="dialog-content"][class*="overflow-y-auto"] {
+  overscroll-behavior: contain;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mosaic tile — slow cinematic zoom */
+.mosaic-crop {
+  animation: mosaicZoom 10s ease-in-out alternate infinite;
+  transition: opacity 1.5s ease-in-out;
+}
+@keyframes mosaicZoom {
+  0%   { transform: scale(1.0); }
+  100% { transform: scale(1.12); }
+}
+
+/* Stagger zoom start for adjacent tiles */
+.mosaic-tile:nth-child(odd) .mosaic-crop {
+  animation-delay: 0s;
+  animation-duration: 12s;
+}
+.mosaic-tile:nth-child(even) .mosaic-crop {
+  animation-delay: -3s;
+  animation-duration: 9s;
+}
+.mosaic-tile:nth-child(3n) .mosaic-crop {
+  animation-delay: -6s;
+  animation-duration: 14s;
+}
+
+/* ===================================================================
+   Hero Showcase — Crossfade + Ken Burns + Monochrome/Color
+   =================================================================== */
+
+.hero-showcase {
+  position: relative;
+}
+
+.hero-slide-img {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.hero-slide-img img {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Hero scroll indicator bounce */
+@keyframes heroBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* Specialty badge hover — replaces JS inline style */
+.specialty-badge:hover {
+  background-color: #C9A96E !important;
+  color: var(--c-text-primary) !important;
+  border-color: #C9A96E !important;
+}
+
+/* QR Connect button hover — replaces JS inline style */
+.qr-connect-btn:hover {
+  border-color: rgba(201,169,110,0.53) !important;
+  box-shadow: 0 0 30px rgba(201,169,110,0.13), 0 0 60px rgba(201,169,110,0.07) !important;
+}
+
+/* NONO Easter egg shimmer — CSS-only (compositor-friendly via pseudo-element) */
+.nono-shimmer {
+  animation: nonoShimmer 4s linear infinite;
+}
+@keyframes nonoShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Data box blink animation — compositor-friendly: opacity + transform only */
+@keyframes dataBoxBlink {
+  0%   { opacity: 1; transform: scale(1); }
+  25%  { opacity: 0.3; transform: scale(1.01); }
+  50%  { opacity: 1; transform: scale(1.02); }
+  75%  { opacity: 0.3; transform: scale(1.01); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.data-box-blink {
+  animation: dataBoxBlink 1.4s ease-in-out 2;
+}
+
+/* One-shot blink — used when clicking the image (not hover) */
+.data-box-blink-once {
+  animation: dataBoxBlink 1.4s ease-in-out 2 forwards;
+}
+
+/* Logo pulse glow — hints that the logo is clickable */
+@keyframes logoPulse {
+  0%    { transform: scale(1); }
+  8%    { transform: scale(1.12); }
+  16%   { transform: scale(1); }
+  24%   { transform: scale(1.12); }
+  32%   { transform: scale(1); }
+  100%  { transform: scale(1); }
+}
+
+.logo-pulse-repeat {
+  animation: logoPulse 20s ease-in-out infinite;
+}
+
+.logo-pulse-repeat:hover {
+  animation: none;
+  transform: scale(1.05);
+}
+
+/* Surface utility classes for inline style replacements */
+.surface-dark {
+  background-color: var(--c-surface-dark);
+}
+.surface-card {
+  background-color: var(--c-surface-card);
+}
+.surface-hover {
+  background-color: var(--c-surface-hover);
+}
+
+/* Search overlay */
+.search-overlay-bg {
+  background-color: var(--c-search-overlay-bg);
+}
+.search-input-bg {
+  background-color: var(--c-search-input-bg);
+}
+
+/* Mobile nav overlay */
+.mobile-nav-overlay {
+  background-color: var(--c-mobile-nav-bg);
+  backdrop-filter: blur(20px);
+}
+
+/* ===================================================================
+   HERO DARK CONTEXT — always-dark overrides (dark overlays on images)
+   =================================================================== */
+.hero-dark-context .text-white { color: #ffffff !important; }
+.hero-dark-context .text-white\/80 { color: rgba(255,255,255,0.8) !important; }
+.hero-dark-context .text-white\/70 { color: rgba(255,255,255,0.7) !important; }
+.hero-dark-context .text-white\/60 { color: rgba(255,255,255,0.6) !important; }
+.hero-dark-context .text-white\/50 { color: rgba(255,255,255,0.5) !important; }
+.hero-dark-context .text-white\/45 { color: rgba(255,255,255,0.45) !important; }
+.hero-dark-context .text-white\/40 { color: rgba(255,255,255,0.4) !important; }
+.hero-dark-context .text-white\/35 { color: rgba(255,255,255,0.35) !important; }
+.hero-dark-context .text-white\/30 { color: rgba(255,255,255,0.3) !important; }
+.hero-dark-context .text-white\/25 { color: rgba(255,255,255,0.25) !important; }
+.hero-dark-context .text-white\/20 { color: rgba(255,255,255,0.2) !important; }
+.hero-dark-context .text-white\/15 { color: rgba(255,255,255,0.15) !important; }
+.hero-dark-context .text-white\/10 { color: rgba(255,255,255,0.1) !important; }
+.hero-dark-context .border-white\/10,
+.hero-dark-context .border-white\/5,
+.hero-dark-context .border-white\/20,
+.hero-dark-context .border-white\/15,
+.hero-dark-context .border-white\/3,
+.hero-dark-context .border-white\/\[0\.04\],
+.hero-dark-context .border-white\/\[0\.06\] {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.hero-dark-context .bg-black\/15,
+.hero-dark-context .bg-black\/50,
+.hero-dark-context .bg-black\/60 {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+}
+.hero-dark-context .bg-black\/0 { background-color: transparent !important; }
+.hero-dark-context .hover\:bg-black\/50:hover { background-color: rgba(0, 0, 0, 0.5) !important; }
+.hero-dark-context .bg-white\/10,
+.hero-dark-context .bg-white\/5 { background-color: rgba(255, 255, 255, 0.1) !important; }
+.hero-dark-context .bg-white\/\[0\.03\],
+.hero-dark-context .bg-white\/\[0\.06\] { background-color: rgba(255, 255, 255, 0.04) !important; }
+.hero-dark-context .hover\:bg-white\/10:hover,
+.hero-dark-context .hover\:bg-white\/5:hover { background-color: rgba(255, 255, 255, 0.1) !important; }
+.hero-dark-context .data-box-blink,
+.hero-dark-context .data-box-blink-once { animation: dataBoxBlink 1.4s ease-in-out 2 forwards !important; }
+.hero-dark-context .focus-within\:border-\[\#C9A96E\]\/20:focus-within { border-color: rgba(201, 169, 110, 0.2) !important; }
+
+/* ===================================================================
+   LIGHTBOX CONTEXT — always-dark overrides
+   =================================================================== */
+.lightbox-context .border-white\/10,
+.lightbox-context .border-white\/5,
+.lightbox-context .border-white\/20,
+.lightbox-context .border-white\/15,
+.lightbox-context .border-white\/3 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.lightbox-context .bg-black\/50 {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+.lightbox-context .bg-black\/60 {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+.lightbox-context .hover\:bg-black\/50:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+.lightbox-context .hover\:bg-white\/10:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+.lightbox-context .bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Lightbox fullscreen mode */
+.lightbox-context:fullscreen,
+.lightbox-context:-webkit-full-screen {
+  background-color: rgba(0, 0, 0, 1) !important;
+}
+.chat-lightbox:fullscreen,
+.chat-lightbox:-webkit-full-screen {
+  background-color: rgba(0, 0, 0, 1) !important;
+}
+
+/* ===================================================================
+   INP OPTIMIZATION — CSS animations replacing framer-motion
+   =================================================================== */
+
+/* Nav slide-in — replaces framer-motion initial animation */
+@keyframes navSlideIn {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+.nav-slide-in {
+  animation: navSlideIn 0.6s ease-out both;
+}
+
+/* Logo dialog fade-in — replaces framer-motion scale/opacity */
+@keyframes logoDialogFadeIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.logo-dialog-fade-in {
+  animation: logoDialogFadeIn 0.6s ease-out both;
+}
+
+/* Logo dialog text slide-in — replaces framer-motion y/opacity */
+@keyframes logoDialogTextIn {
+  from { transform: translateY(15px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.logo-dialog-text-in {
+  animation: logoDialogTextIn 0.5s ease-out 0.2s both;
+}
+
+/* ===================================================================
+   INP OPTIMIZATION — content-visibility for below-fold sections
+   Skips rendering/layout of off-screen content, reducing main-thread work
+   =================================================================== */
+section:not(#home) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
+/* ===================================================================
+   NAV GRID ANIMATIONS — CSS replacing framer-motion (INP optimization)
+   =================================================================== */
+
+/* Grid section heading fade-in */
+@keyframes navGridFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.nav-grid-fade-in {
+  animation: navGridFadeIn 0.6s ease-out both;
+}
+
+/* Grid gold line expand */
+@keyframes navGridLineExpand {
+  from { width: 0; }
+  to { width: 80px; }
+}
+.nav-grid-line-expand {
+  animation: navGridLineExpand 0.8s ease-out 0.3s both;
+}
+
+/* Individual card fade-in with stagger via animation-delay */
+@keyframes navCardFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.nav-card-fade-in {
+  animation: navCardFadeIn 0.4s ease-out both;
+}
+
+/* ===================================================================
+   SPEED INSIGHTS OPTIMIZATION — CSS animations replacing framer-motion
+   Reduces JS-based animation overhead for better INP/TBT scores
+   =================================================================== */
+
+/* Scroll-to-top button animation */
+@keyframes scrollTopIn {
+  from { opacity: 0; transform: scale(0.6) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes scrollTopOut {
+  from { opacity: 1; transform: scale(1) translateY(0); }
+  to { opacity: 0; transform: scale(0.6) translateY(10px); }
+}
+.scroll-top-btn-enter { animation: scrollTopIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.scroll-top-btn-exit { animation: scrollTopOut 0.2s ease-in both; }
+
+/* Sidebar animations */
+@keyframes sidebarOverlayIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sidebarOverlayOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes sidebarPanelIn { from { transform: translateX(-320px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes sidebarPanelOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(-320px); opacity: 0; } }
+@keyframes sidebarItemIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+
+.sidebar-overlay-enter { animation: sidebarOverlayIn 0.3s ease-out both; }
+.sidebar-overlay-exit { animation: sidebarOverlayOut 0.2s ease-in both; }
+.sidebar-panel-enter { animation: sidebarPanelIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.sidebar-panel-exit { animation: sidebarPanelOut 0.25s ease-in both; }
+.sidebar-item-enter { animation: sidebarItemIn 0.3s ease-out both; }
+
+/* Section heading animations (CSS replacement for framer-motion) */
+@keyframes sectionHeadingIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes sectionLineExpand { from { width: 0; } to { width: 80px; } }
+@keyframes sectionSubIn { from { opacity: 0; } to { opacity: 1; } }
+
+.section-heading-in { animation: sectionHeadingIn 0.7s ease-out both; }
+.section-line-expand { animation: sectionLineExpand 0.8s ease-out 0.3s both; }
+.section-sub-in { animation: sectionSubIn 0.6s ease-out 0.4s both; }
+
+/* Search overlay animation */
+@keyframes searchOverlayIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes searchInputIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes searchResultIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.search-overlay-in { animation: searchOverlayIn 0.25s ease-out both; }
+.search-input-in { animation: searchInputIn 0.4s ease-out 0.1s both; }
+.search-result-in { animation: searchResultIn 0.3s ease-out both; }
+
+/* About section — portrait slide-in from left */
+@keyframes aboutPortraitIn { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes aboutBioIn { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes aboutStatIn { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+.about-portrait-in { animation: aboutPortraitIn 0.8s ease-out 0.1s both; }
+.about-bio-in { animation: aboutBioIn 0.8s ease-out 0.2s both; }
+.about-stat-in { animation: aboutStatIn 0.7s ease-out both; }
+
+/* Theme toggle icon rotation — CSS replacement for framer-motion AnimatePresence */
+@keyframes themeIconIn {
+  from { opacity: 0; transform: rotate(-90deg) scale(0.5); }
+  to { opacity: 1; transform: rotate(0deg) scale(1); }
+}
+.theme-icon-enter { animation: themeIconIn 0.3s ease-out both; }
+
+/* ===================================================================
+   VERCEL SPEED INSIGHTS — Additional CWV optimizations
+   =================================================================== */
+
+/* LCP: Ensure hero section is never delayed by layout shifts */
+.hero-dark-context img {
+  content-visibility: auto;
+}
+
+/* INP: Reduce paint area for expensive backdrop-blur on non-visible elements */
+[style*="backdrop-blur"] {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  isolation: isolate;
+}
+
+/* CLS: Reserve aspect ratio for hero image container */
+.hero-showcase {
+  aspect-ratio: 16 / 9;
+}
+
+/* TBT: Defer painting of offscreen interactive elements */
+.fixed[class*="z-[99"] {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 48px;
+}
+
+/* INP: Ensure interactive elements respond within 50ms visual feedback */
+button, a, [role="button"] {
+  touch-action: manipulation;
+}
+
+/* FCP: Reduce main-thread style recalculation scope */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Print optimization — hide non-essential elements */
+@media print {
+  .fixed, nav, .sidebar-item-enter, footer { display: none !important; }
+  .hero-dark-context { page-break-after: always; }
+}
